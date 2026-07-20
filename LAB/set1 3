@@ -1,0 +1,14 @@
+# Data
+advertising_budget <- c(5000, 6000, 7000, 6500, 8000)
+sales <- c(15000, 18000, 22000, 20000, 23000)
+
+# Scatter Plot
+plot(advertising_budget, sales,
+     main = "Advertising Budget vs Monthly Sales",
+     xlab = "Advertising Budget ($)",
+     ylab = "Monthly Sales ($)",
+     pch = 19)
+
+# Add trend line
+abline(lm(sales ~ advertising_budget),
+       lty = 2)
