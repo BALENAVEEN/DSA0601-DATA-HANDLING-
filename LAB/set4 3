@@ -1,0 +1,15 @@
+# Sample Price Data
+price <- c(20,15,25,18,22)
+
+plot(price,
+     quantity,
+     pch = 19,
+     col = "blue",
+     main = "Price vs Quantity",
+     xlab = "Price ($)",
+     ylab = "Quantity")
+
+# Trend Line
+abline(lm(quantity ~ price),
+       col = "red",
+       lwd = 2)
