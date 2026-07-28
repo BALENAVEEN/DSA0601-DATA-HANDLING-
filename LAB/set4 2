@@ -1,0 +1,18 @@
+# Sample Categories
+category <- c("Electronics","Electronics","Furniture","Furniture","Accessories")
+
+inventory <- data.frame(product, category, quantity)
+
+# Create Table
+stack_data <- table(inventory$category, inventory$product)
+
+# Stacked Bar Chart
+barplot(stack_data,
+        col = c("orange","green"),
+        main = "Products by Category",
+        xlab = "Products",
+        ylab = "Count")
+
+legend("topright",
+       legend = rownames(stack_data),
+       fill = c("orange","green"))
