@@ -1,0 +1,20 @@
+install.packages("tm")
+install.packages("wordcloud")
+install.packages("RColorBrewer")
+library(tm)
+library(wordcloud)
+library(RColorBrewer)
+
+feedback <- c(
+  "Excellent service",
+  "Very satisfied",
+  "Good quality",
+  "Fast delivery",
+  "Excellent support"
+)
+
+corpus <- Corpus(VectorSource(feedback))
+
+wordcloud(corpus,
+          max.words = 20,
+          colors = brewer.pal(8, "Dark2"))
