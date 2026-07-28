@@ -1,0 +1,44 @@
+library(shiny)
+
+date <- c("Jan-01","Jan-02","Jan-03","Jan-04","Jan-05")
+pageviews <- c(1500,1600,1400,1650,1800)
+ctr <- c(2.3,2.7,2.0,2.4,2.6)
+
+ui <- fluidPage(
+
+    titlePanel("Website Traffic Dashboard"),
+
+    plotOutput("lineChart"),
+    plotOutput("barChart")
+)
+
+server <- function(input, output){
+
+    output$lineChart <- renderPlot({
+
+        plot(pageviews,
+             type="o",
+             xaxt="n",
+             pch=16,
+             col="blue",
+             xlab="Date",
+             ylab="Page Views",
+             main="Daily Page Views")
+
+        axis(1, at=1:5, labels=date)
+
+    })
+
+    output$barChart <- renderPlot({
+
+        barplot(ctr,
+                names.arg=date,
+                col="orange",
+                main="Click-through Rate",
+                xlab="Date",
+                ylab="CTR (%)")
+    })
+
+}
+
+shinyApp(ui=ui, server=server)
