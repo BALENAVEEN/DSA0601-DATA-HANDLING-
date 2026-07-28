@@ -1,0 +1,20 @@
+# Sample Interaction Data
+likes <- c(500,550,450,600,650)
+shares <- c(200,220,180,250,270)
+comments <- c(100,120,90,110,130)
+
+# Stacked Area Chart
+interaction <- cbind(likes, shares, comments)
+
+matplot(interaction,
+        type="l",
+        lty=1,
+        lwd=2,
+        xlab="Day",
+        ylab="Interactions",
+        main="User Interactions")
+
+legend("topleft",
+       legend=c("Likes","Shares","Comments"),
+       col=1:3,
+       lty=1)
