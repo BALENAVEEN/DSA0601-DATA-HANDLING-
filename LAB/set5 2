@@ -1,0 +1,10 @@
+# Click-through Rates
+ctr <- c(2.3,2.7,2.0,2.4,2.6)
+date <- c("Jan-01","Jan-02","Jan-03","Jan-04","Jan-05")
+
+barplot(ctr,
+        names.arg=date,
+        col="orange",
+        main="Click-through Rate by Date",
+        xlab="Date",
+        ylab="CTR (%)")
