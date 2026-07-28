@@ -1,0 +1,46 @@
+library(shiny)
+
+product <- c("Product A","Product B","Product C","Product D","Product E")
+quantity <- c(250,175,300,200,220)
+
+ui <- fluidPage(
+
+  titlePanel("Product Inventory Dashboard"),
+
+  plotOutput("barChart"),
+  plotOutput("stackChart")
+
+)
+
+server <- function(input, output){
+
+  output$barChart <- renderPlot({
+
+    barplot(quantity,
+            names.arg = product,
+            col = "skyblue",
+            main = "Inventory Quantity",
+            xlab = "Products",
+            ylab = "Quantity")
+
+  })
+
+  output$stackChart <- renderPlot({
+
+    category <- c("Electronics","Electronics","Furniture","Furniture","Accessories")
+    stack_data <- table(category, product)
+
+    barplot(stack_data,
+            col = c("orange","green","purple"),
+            main = "Products by Category",
+            xlab = "Products",
+            ylab = "Count")
+
+    legend("topright",
+           legend = rownames(stack_data),
+           fill = c("orange","green","purple"))
+  })
+
+}
+
+shinyApp(ui = ui, server = server)
