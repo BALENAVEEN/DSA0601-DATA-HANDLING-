@@ -1,0 +1,16 @@
+# Age Groups
+age_group <- c("20-29","30-39","30-39","20-29","40+")
+
+# Create Table
+data <- table(age_group, satisfaction)
+
+# Stacked Bar Chart
+barplot(data,
+        col = c("orange","green","blue"),
+        main = "Satisfaction by Age Group",
+        xlab = "Age Group",
+        ylab = "Number of Customers")
+
+legend("topright",
+       legend = rownames(data),
+       fill = c("orange","green","blue"))
