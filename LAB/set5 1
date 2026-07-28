@@ -1,0 +1,15 @@
+# Website Traffic Data
+date <- c("Jan-01","Jan-02","Jan-03","Jan-04","Jan-05")
+pageviews <- c(1500,1600,1400,1650,1800)
+
+# Line Chart
+plot(pageviews,
+     type="o",
+     pch=16,
+     xaxt="n",
+     col="blue",
+     xlab="Date",
+     ylab="Page Views",
+     main="Daily Website Page Views")
+
+axis(1, at=1:5, labels=date)
