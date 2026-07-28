@@ -1,0 +1,9 @@
+# Satisfaction Count
+score_count <- table(satisfaction)
+
+pie(score_count,
+    main = "Customer Satisfaction Scores",
+    labels = paste(names(score_count),
+                   "(",
+                   score_count,
+                   ")"))
