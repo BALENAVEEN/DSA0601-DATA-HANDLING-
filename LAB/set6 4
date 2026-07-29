@@ -1,0 +1,45 @@
+library(shiny)
+
+sales <- rbind(
+  c(2000,1500,1200),
+  c(2200,1800,1400),
+  c(2400,1600,1100)
+)
+
+colnames(sales) <- c("Product A","Product B","Product C")
+rownames(sales) <- c("January","February","March")
+
+ui <- fluidPage(
+
+    titlePanel("Product Sales Dashboard"),
+
+    plotOutput("groupBar"),
+    tableOutput("salesTable")
+
+)
+
+server <- function(input, output){
+
+output$groupBar <- renderPlot({
+
+barplot(sales,
+        beside=TRUE,
+        col=c("red","green","blue"),
+        main="Quarter 1 Product Sales")
+
+})
+
+output$salesTable <- renderTable({
+
+data.frame(
+Product=c("Product A","Product B","Product C"),
+January=c(2000,1500,1200),
+February=c(2200,1800,1400),
+March=c(2400,1600,1100)
+)
+
+})
+
+}
+
+shinyApp(ui,server)
