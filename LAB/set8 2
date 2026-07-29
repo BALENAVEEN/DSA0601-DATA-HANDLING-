@@ -1,0 +1,11 @@
+# Department Data
+department <- c("Sales","HR","Marketing")
+
+dept_count <- table(department)
+
+# Bar Chart
+barplot(dept_count,
+        col = c("red","green","blue"),
+        main = "Department Distribution",
+        xlab = "Department",
+        ylab = "Number of Employees")
