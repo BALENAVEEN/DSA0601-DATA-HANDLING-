@@ -1,0 +1,9 @@
+# Gender Data
+gender <- c("Female","Male","Female")
+
+gender_count <- table(gender)
+
+pie(gender_count,
+    labels = names(gender_count),
+    main = "Gender Distribution",
+    col = c("pink","lightblue"))
