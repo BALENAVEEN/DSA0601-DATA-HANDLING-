@@ -1,0 +1,22 @@
+# Product Sales Data
+
+jan <- c(2000,1500,1200)
+feb <- c(2200,1800,1400)
+mar <- c(2400,1600,1100)
+
+sales <- rbind(jan, feb, mar)
+
+colnames(sales) <- c("Product A","Product B","Product C")
+rownames(sales) <- c("January","February","March")
+
+# Grouped Bar Chart
+barplot(sales,
+        beside = TRUE,
+        col = c("red","green","blue"),
+        main = "Quarter 1 Product Sales",
+        xlab = "Products",
+        ylab = "Sales ($)")
+
+legend("topright",
+       legend = rownames(sales),
+       fill = c("red","green","blue"))
