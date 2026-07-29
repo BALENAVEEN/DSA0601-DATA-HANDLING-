@@ -1,0 +1,56 @@
+library(shiny)
+
+employee <- c(1,2,3)
+performance <- c(85,92,78)
+department <- c("Sales","HR","Marketing")
+
+ui <- fluidPage(
+
+    titlePanel("Employee Performance Dashboard"),
+
+    plotOutput("lineChart"),
+    plotOutput("barChart"),
+    tableOutput("table")
+
+)
+
+server <- function(input, output){
+
+output$lineChart <- renderPlot({
+
+plot(employee, performance,
+     type="o",
+     pch=16,
+     col="blue",
+     xlab="Employee ID",
+     ylab="Performance Score",
+     main="Employee Performance Trend")
+
+})
+
+output$barChart <- renderPlot({
+
+dept <- table(department)
+
+barplot(dept,
+        col=c("red","green","blue"),
+        main="Department Distribution",
+        xlab="Department",
+        ylab="Employees")
+
+})
+
+output$table <- renderTable({
+
+data.frame(
+Employee_ID=c(1,2,3),
+Department=c("Sales","HR","Marketing"),
+Years_of_Service=c(5,3,7),
+Performance_Score=c(85,92,78)
+)
+
+})
+
+}
+
+shinyApp(ui, server)
