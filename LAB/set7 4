@@ -1,0 +1,54 @@
+library(shiny)
+
+customer <- c("Customer 1","Customer 2","Customer 3")
+age <- c(28,35,42)
+gender <- c("Female","Male","Female")
+
+ui <- fluidPage(
+
+    titlePanel("Customer Demographics Dashboard"),
+
+    plotOutput("barChart"),
+    plotOutput("pieChart"),
+    tableOutput("table")
+
+)
+
+server <- function(input, output){
+
+output$barChart <- renderPlot({
+
+barplot(age,
+        names.arg=customer,
+        col="skyblue",
+        main="Customer Age Distribution",
+        xlab="Customers",
+        ylab="Age")
+
+})
+
+output$pieChart <- renderPlot({
+
+g <- table(gender)
+
+pie(g,
+    labels=names(g),
+    main="Gender Distribution",
+    col=c("pink","lightblue"))
+
+})
+
+output$table <- renderTable({
+
+data.frame(
+Customer_ID=c(1,2,3),
+Age=c(28,35,42),
+Gender=c("Female","Male","Female"),
+Income=c(50000,60000,75000)
+)
+
+})
+
+}
+
+shinyApp(ui, server)
