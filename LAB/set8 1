@@ -1,0 +1,12 @@
+# Employee Performance Data
+employee <- c(1,2,3)
+performance <- c(85,92,78)
+
+# Line Chart
+plot(employee, performance,
+     type = "o",
+     pch = 16,
+     col = "blue",
+     xlab = "Employee ID",
+     ylab = "Performance Score",
+     main = "Employee Performance Trend")
