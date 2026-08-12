@@ -1,0 +1,18 @@
+# Product data with sample categories
+product <- c("Product A", "Product B", "Product C")
+category <- c("Electronics", "Furniture", "Electronics")
+quantity <- c(250, 175, 300)
+
+data <- data.frame(product, category, quantity)
+
+# Stacked Bar Chart
+barplot(data$quantity,
+        names.arg = data$product,
+        col = c("orange", "green", "orange"),
+        main = "Product Quantity by Category",
+        xlab = "Product",
+        ylab = "Quantity Available")
+
+legend("topright",
+       legend = unique(category),
+       fill = c("orange", "green"))
