@@ -1,0 +1,13 @@
+# Survey data
+q1 <- c("A", "B", "C")
+
+# Count responses
+q1_count <- table(q1)
+
+# Bar chart
+barplot(q1_count,
+        beside = TRUE,
+        col = "skyblue",
+        main = "Distribution of Question 1 Answers",
+        xlab = "Answer",
+        ylab = "Number of Responses")
