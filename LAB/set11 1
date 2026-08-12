@@ -1,0 +1,14 @@
+# Product Category Data
+category <- c("Electronics", "Clothing", "Appliances")
+sales <- c(50000, 35000, 40000)
+
+# Calculate percentages
+percentage <- round(sales / sum(sales) * 100, 1)
+
+# Labels
+labels <- paste(category, percentage, "%")
+
+# Pie Chart
+pie(sales,
+    labels = labels,
+    main = "Sales Distribution by Product Category")
