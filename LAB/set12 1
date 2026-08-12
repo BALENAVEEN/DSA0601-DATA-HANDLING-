@@ -1,0 +1,13 @@
+# Customer Demographics Data
+customer_id <- c(1, 2, 3)
+age <- c(28, 35, 42)
+gender <- c("Female", "Male", "Female")
+income <- c(50000, 60000, 75000)
+
+# Bar Chart
+barplot(age,
+        names.arg = paste("Customer", customer_id),
+        col = "skyblue",
+        main = "Distribution of Customer Ages",
+        xlab = "Customer",
+        ylab = "Age (Years)")
