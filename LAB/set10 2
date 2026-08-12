@@ -1,0 +1,43 @@
+# Survey responses
+survey <- data.frame(
+  Question1 = c("A", "B", "C"),
+  Question2 = c("B", "A", "A"),
+  Question3 = c("C", "D", "B")
+)
+
+# Count responses for each question
+responses <- rbind(
+  table(survey$Question1),
+  table(survey$Question2),
+  table(survey$Question3)
+)
+
+# Make all answer categories A, B, C, D available
+all_answers <- c("A", "B", "C", "D")
+
+responses_full <- matrix(
+  0,
+  nrow = 3,
+  ncol = 4,
+  dimnames = list(
+    c("Question 1", "Question 2", "Question 3"),
+    all_answers
+  )
+)
+
+for(i in 1:3) {
+  temp <- table(survey[[i]])
+  responses_full[i, names(temp)] <- temp
+}
+
+# Stacked bar chart
+barplot(t(responses_full),
+        beside = FALSE,
+        col = c("red", "green", "blue", "orange"),
+        main = "Overall Distribution of Survey Responses",
+        xlab = "Questions",
+        ylab = "Number of Responses")
+
+legend("topright",
+       legend = all_answers,
+       fill = c("red", "green", "blue", "orange"))
