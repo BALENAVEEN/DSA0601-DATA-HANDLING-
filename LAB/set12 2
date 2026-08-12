@@ -1,0 +1,8 @@
+# Count genders
+gender_count <- table(gender)
+
+# Pie Chart
+pie(gender_count,
+    labels = paste(names(gender_count),
+                   gender_count),
+    main = "Customer Gender Distribution")
