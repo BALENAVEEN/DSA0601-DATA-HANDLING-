@@ -1,0 +1,12 @@
+# Product Category Data
+category <- c("Electronics", "Appliances", "Clothing")
+sales <- c(50000, 40000, 35000)
+
+# Create horizontal bars
+barplot(sales,
+        names.arg = category,
+        horiz = TRUE,
+        col = "skyblue",
+        main = "Sales Funnel by Product Category",
+        xlab = "Sales ($)",
+        las = 1)
