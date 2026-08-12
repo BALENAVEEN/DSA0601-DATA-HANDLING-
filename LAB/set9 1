@@ -1,0 +1,11 @@
+# Product Inventory Data
+product <- c("Product A", "Product B", "Product C")
+quantity <- c(250, 175, 300)
+
+# Bar Chart
+barplot(quantity,
+        names.arg = product,
+        col = "skyblue",
+        main = "Product Inventory",
+        xlab = "Product",
+        ylab = "Quantity Available")
